@@ -5,13 +5,21 @@ Backend written in C#.
 ## Endpoints:
 
 ### Books:
-  GET /api/books: Retrieve a list of all books.
+
+  GET /api/books: Retrieve a list of all books. 
+  
   GET /api/books/{id}: Retrieve details of a specific book by its ID.
+  
   POST /api/books: Create a new book.
+  
   PUT /api/books/{id}: Update an existing book.
+  
   DELETE /api/books/{id}: Delete a book.
+  
 ### Authors:
+
   GET /api/authors: Retrieve a list of all authors.
+  
   GET /api/authors/{id}/books: Retrieve all books written by a specific author.
 
 ## PostgreSQL Database
