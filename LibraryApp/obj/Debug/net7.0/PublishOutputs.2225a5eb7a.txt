@@ -1,0 +1,17 @@
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/LibraryApp
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/appsettings.Development.json
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/appsettings.json
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/LibraryApp.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/LibraryApp.deps.json
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/LibraryApp.runtimeconfig.json
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/LibraryApp.pdb
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Microsoft.AspNetCore.OpenApi.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Microsoft.EntityFrameworkCore.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Microsoft.OpenApi.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Npgsql.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Swashbuckle.AspNetCore.Swagger.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/carterlynch/Documents/Code/LibraryApp/backend/LibraryApp/publish/Swashbuckle.AspNetCore.SwaggerUI.dll
