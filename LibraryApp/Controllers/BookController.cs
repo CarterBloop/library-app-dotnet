@@ -23,8 +23,8 @@ namespace LibraryApp.Controllers
         public async Task<ActionResult<IEnumerable<BookDto>>> GetBooks()
         {
             return await _context.Books
-                .Include(b => b.BookAuthors) // Ensures BookAuthor data is retrieved
-                .ThenInclude(ba => ba.Author) // Ensures Author data is retrieved
+                .Include(b => b.BookAuthors) 
+                .ThenInclude(ba => ba.Author) 
                 .Select(b => new BookDto
                 {
                     id = b.id,
@@ -40,8 +40,8 @@ namespace LibraryApp.Controllers
         public async Task<ActionResult<BookDto>> GetBook(int id)
         {
             var book = await _context.Books
-                .Include(b => b.BookAuthors) // Ensures BookAuthor data is retrieved
-                .ThenInclude(ba => ba.Author) // Ensures Author data is retrieved
+                .Include(b => b.BookAuthors) 
+                .ThenInclude(ba => ba.Author) 
                 .Select(b => new BookDto
                 {
                     id = b.id,
@@ -76,10 +76,10 @@ namespace LibraryApp.Controllers
             book.title = updatedBookDto.title;
             book.isbn = updatedBookDto.isbn;
 
-            // Get the author names from the updatedBookDto
+           
             var authorNames = updatedBookDto.authors ?? new List<string>();
 
-            // Retrieve the associated authors from the database or create new ones
+           
             var authors = new List<Author>();
             foreach (var authorName in authorNames)
             {
@@ -92,17 +92,17 @@ namespace LibraryApp.Controllers
                 authors.Add(author);
             }
 
-            // Remove existing BookAuthors
+            
             _context.BookAuthors.RemoveRange(book.BookAuthors);
 
-            // Create new BookAuthors
+            
             var newBookAuthors = authors.Select(a => new BookAuthor { Book = book, Author = a }).ToList();
             _context.BookAuthors.AddRange(newBookAuthors);
 
-            // Save the changes to the database
+            
             await _context.SaveChangesAsync();
 
-            // Remove associated authors with no more associated books
+           
             var removedAuthors = await _context.Authors
                                                .Where(a => a.BookAuthors.Count == 0)
                                                .ToListAsync();
@@ -126,10 +126,9 @@ namespace LibraryApp.Controllers
                 BookAuthors = new List<BookAuthor>()
             };
 
-            // Get the author names from the bookDto
+            
             var authorNames = bookDto.authors ?? new List<string>();
 
-            // Retrieve the associated authors from the database or create new ones
             var authors = new List<Author>();
             foreach (var authorName in authorNames)
             {
@@ -142,20 +141,18 @@ namespace LibraryApp.Controllers
                 authors.Add(author);
             }
 
-            // Create the BookAuthor entities and add them to the book's collection
+            
             foreach (var author in authors)
             {
                 var bookAuthor = new BookAuthor { Book = book, Author = author };
                 book.BookAuthors.Add(bookAuthor);
             }
 
-            // Add the book to the context
             _context.Books.Add(book);
 
-            // Save the changes to the database
+            
             await _context.SaveChangesAsync();
 
-            // Return the created book with the associated authors
             var createdBookDto = new BookDto
             {
                 id = book.id,
@@ -180,7 +177,6 @@ namespace LibraryApp.Controllers
                 return NotFound();
             }
 
-            // Handle loan references
             var associatedLoans = await _context.Loans
                                                .Where(l => l.bookid == id)
                                                .ToListAsync();
@@ -189,16 +185,13 @@ namespace LibraryApp.Controllers
                 _context.Loans.Remove(loan);
             }
 
-            // Remove each associated bookauthor record
             foreach (var bookAuthor in book.BookAuthors.ToList())
             {
                 _context.BookAuthors.Remove(bookAuthor);
             }
 
-            // Remove the book from the context
             _context.Books.Remove(book);
 
-            // Remove associated authors with no more associated books
             var removedAuthors = await _context.Authors
                                                .Where(a => a.BookAuthors.Count == 0)
                                                .ToListAsync();
